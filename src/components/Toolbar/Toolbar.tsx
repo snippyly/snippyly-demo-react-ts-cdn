@@ -17,26 +17,26 @@ function Toolbar() {
     useEffect(() => {
         // To call identifySnippyly once Snippyly is loaded and user is available
         if (selectedUser && snippyly) {
-            signIn();
+            identifySnippyly();
         }
-    }, [selectedUser && snippyly])
+    }, [selectedUser, snippyly])
 
     // To set user in Snippyly
     const identifySnippyly = async () => {
         if (snippyly) {
-            console.log('identifySnippyly')
-            await snippyly.identify({
-                featureAllowList: [], // To allow specific features only
-                // userIdAllowList: [], // To allow specific users only
-                urlAllowList: [], // To allow snippyly in specific screens only
-                user: selectedUser // Pass user with unique userId
+            snippyly.identify(selectedUser).then(() => {
+                // User login successful
+            }).catch(() => {
+                // User login failure
             });
         }
     }
 
-    const signIn = (): void => {
-        localStorage.setItem('user', JSON.stringify(selectedUser));
-        identifySnippyly();
+    const signIn = (user: any): void => {
+        // Add custom logic here to login user
+        // Once user is available call identifySnippyly
+        localStorage.setItem('user', JSON.stringify(user));
+        setSelectedUser(user);
     }
 
     const signOut = () => {
@@ -60,7 +60,7 @@ function Toolbar() {
                             {
                                 users.map((user) => {
                                     return (
-                                        <button key={user.userId} className='custom-btn' onClick={() => setSelectedUser(user)}>{user?.name}</button>
+                                        <button key={user.userId} className='custom-btn' onClick={() => signIn(user)}>{user?.name}</button>
                                     )
                                 })
                             }

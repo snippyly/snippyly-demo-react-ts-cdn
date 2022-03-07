@@ -16,7 +16,34 @@ Here are key pointers if you are implementing Snippyly SDK (CDN Version) in your
 2. Copy `loadSnippyly.ts` file in `src` folder to load Snippyly from cdn.
 3. Add `SnippylyContext.ts` file in `src/context` folder.
 4. Refer `App.tsx` code to load Snippyly and initialize it with your api key.
-5. Refer `Toolbar.tsx` file to set user in Snippyly.
+   ```js
+   useEffect(() => {
+    // Load snippyly from cdn using script
+    loadSnippyly(() => {
+      initSnippyly();
+    })
+   }, [])
+   ```
+   ```js
+   const snippyly = await Snippyly.init('YOUR_API_KEY_HERE', {
+      featureAllowList: [], // To allow specific features only
+      userIdAllowList: [], // To allow specific users only
+      urlAllowList: [], // To allow snippyly in specific screens only
+    }); 
+   ```
+5. Refer `Toolbar.tsx` file to set user in Snippyly. Call below function once logged in user data and snippyly object is available:
+   ```ts
+   // To set user in Snippyly
+    const identifySnippyly = async () => {
+        if (snippyly) {
+            snippyly.identify(selectedUser).then(() => {
+                // User login successful
+            }).catch(() => {
+                // User login failure
+            });
+        }
+    }
+   ```
 6. If you want to show user cursors then add `<snippyly-cursor></snippyly-cursor>` in `App.tsx` file.
 7. If you want to show user presence then add `<snippyly-presence></snippyly-presence>`. In this demo, this tag is added in `Toolbar.tsx` component, but it can be added in any other component you want.
 

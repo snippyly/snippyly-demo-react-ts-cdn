@@ -19,7 +19,11 @@ function App() {
 
   // Once snippyly is loaded, call this method to initialize Snippyly with your api key
   const initSnippyly = async () => {
-    const snippyly = await Snippyly.init('TA66fUfxZVtGBqGxSTCz'); // Add your Api Key here
+    const snippyly = await Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
+      featureAllowList: [], // To allow specific features only
+      userIdAllowList: [], // To allow specific users only
+      urlAllowList: [], // To allow snippyly in specific screens only
+    }); // Add your Api Key here
     setSnippyly(snippyly);
   }
 
