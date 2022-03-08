@@ -1,10 +1,15 @@
 <img src="https://snippyly.com/assets/logo/logo_colored_black.svg" width="250">
 
 
-# Snippyly React (TS CDN) Demo
+# Snippyly React (TypeScript CDN) Demo
 **This demo has two features:**
 1. **Presence:** Who is online on this page.
 2. **Live Cursors:** Where are the online users on the page. It shows their live cursor position.
+
+# Documentation
+
+### SDK documentation
+[https://sdk.snippyly.com/docs/react-ts-cdn-docs](https://sdk.snippyly.com/docs/react-ts-cdn-docs)
 
 # Run demo locally
 
@@ -28,11 +33,4 @@ Run `yarn start` command to run demo locally.
 * For the cursors to work each, you need to ensure that the tab is active. You can click on the page to ensure that its active.
 
 <img src="https://snippyly.com/assets/images/react-demo.gif" width="500">
-
-
-
-# Documentation
-
-### SDK documentation
-[https://sdk.snippyly.com/docs](https://sdk.snippyly.com/docs)
 
