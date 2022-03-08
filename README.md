@@ -8,7 +8,6 @@
 
 # Documentation
 
-### SDK documentation
 [https://sdk.snippyly.com/docs/react-ts-cdn-docs](https://sdk.snippyly.com/docs/react-ts-cdn-docs)
 
 # Run demo locally
