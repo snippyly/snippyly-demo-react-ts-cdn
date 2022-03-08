@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
-export const SnippylyContext = createContext<{ snippyly: any }>({ snippyly: null });
+export const SnippylyContext = createContext<{ client: any }>({ client: null } as any);
 
-export function useSnippyly() {
-    return useContext(SnippylyContext);
+export function useSnippylyClient() {
+  return useContext(SnippylyContext);
 }

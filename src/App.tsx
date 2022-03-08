@@ -8,27 +8,25 @@ declare var Snippyly: any;
 
 function App() {
 
-  const [snippyly, setSnippyly] = useState<any>(null);
+  const [client, setClient] = useState<any>(null);
 
   useEffect(() => {
     // Load snippyly from cdn using script
-    loadSnippyly(() => {
-      initSnippyly();
-    })
+    loadSnippyly(init);
   }, [])
 
-  // Once snippyly is loaded, call this method to initialize Snippyly with your api key
-  const initSnippyly = async () => {
+  // Callback function that is called once Snippyly SDK is loaded.
+  const init = async () => {
     const snippyly = await Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
       featureAllowList: [], // To allow specific features only
       userIdAllowList: [], // To allow specific users only
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
-    setSnippyly(snippyly);
+    setClient(snippyly);
   }
 
   return (
-    <SnippylyContext.Provider value={{ snippyly }}>
+    <SnippylyContext.Provider value={{ client }}>
       <div>
         <snippyly-cursor></snippyly-cursor>
         <Toolbar />

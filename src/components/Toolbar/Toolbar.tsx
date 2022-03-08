@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSnippyly } from '../../context/SnippylyContext';
+import { useSnippylyClient } from '../../context/SnippylyContext';
 import { Users } from '../../Users';
 
 function Toolbar() {
     const [selectedUser, setSelectedUser] = useState<any>(null);
     const users = Users;
 
-    const { snippyly } = useSnippyly();
+    const { client } = useSnippylyClient();
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
@@ -16,15 +16,15 @@ function Toolbar() {
 
     useEffect(() => {
         // To call identifySnippyly once Snippyly is loaded and user is available
-        if (selectedUser && snippyly) {
+        if (selectedUser && client) {
             identifySnippyly();
         }
-    }, [selectedUser, snippyly])
+    }, [selectedUser, client])
 
     // To set user in Snippyly
     const identifySnippyly = async () => {
-        if (snippyly) {
-            snippyly.identify(selectedUser).then(() => {
+        if (client) {
+            client.identify(selectedUser).then(() => {
                 // User login successful
             }).catch(() => {
                 // User login failure
