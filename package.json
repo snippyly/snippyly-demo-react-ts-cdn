@@ -22,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "firebase deploy --only hosting:default",
-    "build:deploy": "npm run build && npm run deploy"
+    "deploy:wdp": "firebase deploy --only hosting:wdp",
+    "build:deploy": "npm run build && npm run deploy",
+    "build:deploy:wdp": "npm run build && npm run deploy:wdp"
   },
   "eslintConfig": {
     "extends": [
