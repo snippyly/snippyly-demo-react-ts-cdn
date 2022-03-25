@@ -30,6 +30,15 @@ function App() {
       <div>
         <snippyly-cursor></snippyly-cursor>
         <Toolbar />
+        <div className="box-container">
+          {
+            Array.from({ length: 25 }, (_, i) => i + 1).map((value) => {
+              return (
+                <div className="box" id={`box${value}`} key={value}><span>{value}</span></div>
+              )
+            })
+          }
+        </div>
       </div>
     </SnippylyContext.Provider>
   );
