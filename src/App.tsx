@@ -1,3 +1,4 @@
+import { Snippyly as SnippylyClient } from '@snippyly/types';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Tabs from './components/Tabs/Tabs';
@@ -5,11 +6,11 @@ import Toolbar from './components/Toolbar/Toolbar';
 import { SnippylyContext } from './context/SnippylyContext';
 import loadSnippyly from './loadSnippyly';
 
-declare var Snippyly: any;
+declare var Snippyly: SnippylyClient;
 
 function App() {
 
-  const [client, setClient] = useState<any>(null);
+  const [client, setClient] = useState<SnippylyClient>(null as any);
 
   const [selectedMenu, setSelectedMenu] = useState();
 
@@ -32,6 +33,7 @@ function App() {
     <SnippylyContext.Provider value={{ client }}>
       <div>
         <snippyly-cursor></snippyly-cursor>
+        <snippyly-comments></snippyly-comments>
         <snippyly-comment-tool>
           <div className='add-comment-btn'>
             <img src='https://cdn-icons-png.flaticon.com/512/727/727570.png' alt='Add comment' />
