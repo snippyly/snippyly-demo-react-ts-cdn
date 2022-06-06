@@ -2,7 +2,7 @@ const loadSnippyly = (callback: Function) => {
     const existingScript = document.getElementById('snippylyScript');
     if (!existingScript) {
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.35/snippyly.js';
+        script.src = 'https://cdn.jsdelivr.net/npm/@snippyly/sdk@1.0.36/snippyly.js';
         script.id = 'snippylyScript';
         script.type = 'module';
         document.body.appendChild(script);

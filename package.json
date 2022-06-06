@@ -45,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "@snippyly/types": "1.0.35"
+    "@snippyly/types": "1.0.36"
   }
 }
