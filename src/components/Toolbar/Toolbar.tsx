@@ -44,9 +44,18 @@ function Toolbar() {
         window.location.reload();
     }
 
+    const navigateTo = (path: string, target: string = '_self') => {
+        window.open(path, target);
+    }
+
     return (
         <div className='header'>
             <snippyly-presence></snippyly-presence>
+            <div className='menu-container'>
+                <span className='menu' onClick={() => navigateTo('/')}>Home</span>
+                <span className='menu' onClick={() => navigateTo('/stream-view')}>Stream View</span>
+                <span className='menu' onClick={() => navigateTo('https://snippyly-demo-react-ts-cdn-wdp.web.app/', '_blank')}>Document Params</span>
+            </div>
             <div>
                 {
                     selectedUser ?
