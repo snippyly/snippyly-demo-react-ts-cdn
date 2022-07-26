@@ -27,6 +27,10 @@ function App() {
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
     setClient(client);
+
+    // Enable attachment feature
+    const commentElement = client.getCommentElement();
+    commentElement.enableAttachment(true);
   }
 
   return (
