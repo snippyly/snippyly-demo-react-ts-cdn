@@ -33,6 +33,8 @@ function App() {
     commentElement.enableTextComments(true);
     // Enable attachment feature
     commentElement.enableAttachment(true);
+    // Show screen size info
+    commentElement.showScreenSizeInfo(true);
     // To enable live selection feature
     const selectionElement = client.getSelectionElement();
     selectionElement.enableLiveSelection(true);

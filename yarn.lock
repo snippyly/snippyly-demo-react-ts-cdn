@@ -1704,10 +1704,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snippyly/types@^1.0.48":
-  version "1.0.48"
-  resolved "https://registry.yarnpkg.com/@snippyly/types/-/types-1.0.48.tgz#589954015af735a43f3218b566da5a339612613a"
-  integrity sha512-fa+4gdx/iw2ZntlpA8GDoB5OwMbsbvy2A4vBW15o9qPRW2tGDjfdKerIQ6/cruFWu5CEpq7zgZDSunNBGRAk+A==
+"@snippyly/types@^1.0.50":
+  version "1.0.50"
+  resolved "https://registry.yarnpkg.com/@snippyly/types/-/types-1.0.50.tgz#30d16e0ad12820bd0e775b20e7e7aeecec248f07"
+  integrity sha512-xZInA834EZXShQ4AguQIVhgSWVh46PmAEpEJoN3/f6GOVFhlo0iFH+p1c4AeSPwen6/Ta0ddtrMOClMSnPTIdw==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
