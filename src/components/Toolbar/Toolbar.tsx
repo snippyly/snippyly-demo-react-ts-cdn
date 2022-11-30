@@ -1,5 +1,5 @@
+import { SnippylyPresence, useSnippylyClient } from '@snippyly/sdk-react-staging';
 import React, { useEffect, useState } from 'react';
-import { useSnippylyClient } from '../../context/SnippylyContext';
 import { Users } from '../../Users';
 
 function Toolbar() {
@@ -53,7 +53,8 @@ function Toolbar() {
 
     return (
         <div className='header'>
-            <snippyly-presence></snippyly-presence>
+            {/* <snippyly-presence></snippyly-presence> */}
+            <SnippylyPresence />
             <div className='menu-container'>
                 <span className='menu' onClick={() => navigateTo('/')}>Home</span>
                 <span className='menu' onClick={() => navigateTo('/stream-view')}>Stream View</span>

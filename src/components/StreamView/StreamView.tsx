@@ -1,5 +1,5 @@
+import { SnippylyComments, useSnippylyClient } from '@snippyly/sdk-react-staging';
 import React, { useEffect } from 'react'
-import { useSnippylyClient } from '../../context/SnippylyContext';
 import './StreamView.css'
 
 function StreamView() {
@@ -37,7 +37,8 @@ function StreamView() {
                 </p>
             </div>
             <div className='stream-view-comments-container'>
-                <snippyly-comments stream-view-container-id='streamViewContainer'></snippyly-comments>
+                {/* <snippyly-comments stream-view-container-id='streamViewContainer'></snippyly-comments> */}
+                <SnippylyComments streamViewContainerId='streamViewContainer' />
             </div>
         </div>
     )

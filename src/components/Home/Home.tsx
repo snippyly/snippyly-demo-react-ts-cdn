@@ -1,9 +1,11 @@
+import { SnippylyComments } from '@snippyly/sdk-react-staging';
 import React from 'react'
 
 function Home() {
     return (
         <>
-            <snippyly-comments></snippyly-comments>
+            {/* <snippyly-comments></snippyly-comments> */}
+            <SnippylyComments />
             <div className="box-container">
                 {
                     Array.from({ length: 25 }, (_, i) => i + 1).map((value) => {
