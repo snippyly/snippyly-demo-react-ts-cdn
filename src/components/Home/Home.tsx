@@ -1,10 +1,9 @@
-import { SnippylyComments } from '@snippyly/sdk-react-staging';
+import { SnippylyComments } from '@snippyly/react';
 import React from 'react'
 
 function Home() {
     return (
         <>
-            {/* <snippyly-comments></snippyly-comments> */}
             <SnippylyComments />
             <div className="box-container">
                 {

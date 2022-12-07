@@ -1,4 +1,4 @@
-import { SnippylyPresence, useSnippylyClient } from '@snippyly/sdk-react-staging';
+import { SnippylyPresence, useSnippylyClient } from '@snippyly/react';
 import React, { useEffect, useState } from 'react';
 import { Users } from '../../Users';
 
@@ -53,7 +53,6 @@ function Toolbar() {
 
     return (
         <div className='header'>
-            {/* <snippyly-presence></snippyly-presence> */}
             <SnippylyPresence />
             <div className='menu-container'>
                 <span className='menu' onClick={() => navigateTo('/')}>Home</span>

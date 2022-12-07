@@ -1,4 +1,4 @@
-import { useSnippylyClient } from '@snippyly/sdk-react-staging';
+import { useSnippylyClient } from '@snippyly/react';
 import React, { useEffect, useState } from 'react';
 
 function Presence() {
