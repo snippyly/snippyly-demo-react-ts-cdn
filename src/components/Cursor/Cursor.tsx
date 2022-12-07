@@ -1,5 +1,5 @@
+import { useSnippylyClient } from '@snippyly/react';
 import React, { useEffect, useState } from 'react';
-import { useSnippylyClient } from '../../context/SnippylyContext';
 
 function Cursor() {
 
