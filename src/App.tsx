@@ -1,33 +1,33 @@
-// import { Snippyly as SnippylyClient } from '@snippyly/types';
+// import { Velt as VeltClient } from '@veltdev/types';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
 import StreamView from './components/StreamView/StreamView';
 import Toolbar from './components/Toolbar/Toolbar';
-// import { SnippylyContext } from './context/SnippylyContext';
-// import loadSnippyly from './loadSnippyly';
-import { SnippylyCommentsSidebar, SnippylyCommentTool, SnippylyCursor, SnippylyHuddle, SnippylyHuddleTool, SnippylyProvider, SnippylyRecorderControlPanel, SnippylyRecorderNotes, SnippylyRecorderTool } from '@snippyly/react';
-import { Snippyly } from '@snippyly/types';
+// import { VeltContext } from './context/VeltContext';
+// import loadVelt from './loadVelt';
+import { VeltCommentsSidebar, VeltCommentTool, VeltCursor, VeltHuddle, VeltHuddleTool, VeltProvider, VeltRecorderControlPanel, VeltRecorderNotes, VeltRecorderTool } from '@veltdev/react';
+import { Velt } from '@veltdev/types';
 
 function App() {
 
-  // Callback function that is called once Snippyly SDK is loaded.
-  const init = async (client?: Snippyly) => {
+  // Callback function that is called once Velt SDK is loaded.
+  const init = async (client?: Velt) => {
     if (client) {
       // To enable text comment feature
       const commentElement = client.getCommentElement();
-      commentElement.enableTextComments(true);
+      commentElement.enableTextComments();
       // Enable attachment feature
-      commentElement.enableAttachment(true);
+      commentElement.enableAttachment();
       // Show screen size info
-      commentElement.showScreenSizeInfo(true);
+      commentElement.enableDeviceInfo();
       // To enable live selection feature
       const selectionElement = client.getSelectionElement();
-      selectionElement.enableLiveSelection(true);
+      selectionElement.enableLiveSelection();
     }
   }
 
-  const excludeSnippylyParamsFromUrl = (url: string) => {
+  const excludeVeltParamsFromUrl = (url: string) => {
     try {
       const tempUrl = new URL(url);
       ['review', 'sreviewId', 'snippyly-user', 'scommentId', 'stagId'].forEach((param) => {
@@ -40,42 +40,23 @@ function App() {
   }
 
   return (
-    <SnippylyProvider apiKey='TA66fUfxZVtGBqGxSTCz'
+    <VeltProvider apiKey='TA66fUfxZVtGBqGxSTCz'
       config={{
         // featureAllowList: ['presence', 'cursor'],
         // userIdAllowList: ['abcd'],
         // urlAllowList: [],
-      } as any} documentId={excludeSnippylyParamsFromUrl(window.location.href)} onClientLoad={(client) => init(client)}>
+      } as any} documentId={excludeVeltParamsFromUrl(window.location.href)} onClientLoad={(client) => init(client)}>
       <div>
-        <SnippylyCursor avatarMode={true} />
-        <SnippylyCommentsSidebar />
-        <SnippylyCommentTool />
+        <VeltCursor avatarMode={true} />
+        <VeltCommentsSidebar />
+        <VeltCommentTool />
         <Toolbar />
-        <div className='toolbar-2'>
-          <div className="recorder-buttons">
-            <div>Recorders:</div>
-            <SnippylyRecorderTool type="all" />
-            <SnippylyRecorderTool type="audio" />
-            <SnippylyRecorderTool type="video" />
-            <SnippylyRecorderTool type="screen" />
-          </div>
-          <div className="huddle-buttons">
-            <div>Huddle:</div>
-            <SnippylyHuddleTool type="all" />
-            <SnippylyHuddleTool />
-            <SnippylyHuddleTool type="video" />
-            <SnippylyHuddleTool type="presentation" />
-          </div>
-        </div>
-        <SnippylyRecorderControlPanel />
-        <SnippylyRecorderNotes />
-        <SnippylyHuddle />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path="/stream-view" element={<StreamView />} />
         </Routes>
       </div>
-    </SnippylyProvider>
+    </VeltProvider>
   );
 }
 

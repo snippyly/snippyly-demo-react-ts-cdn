@@ -1,10 +1,29 @@
-import { SnippylyComments } from '@snippyly/react';
+import { VeltComments, VeltHuddle, VeltHuddleTool, VeltRecorderControlPanel, VeltRecorderNotes, VeltRecorderTool } from '@veltdev/react';
 import React from 'react'
 
 function Home() {
     return (
         <>
-            <SnippylyComments />
+            <VeltComments />
+            <div className='toolbar-2'>
+            <div className="recorder-buttons">
+                <div>Recorders:</div>
+                <VeltRecorderTool type="all" />
+                <VeltRecorderTool type="audio" />
+                <VeltRecorderTool type="video" />
+                <VeltRecorderTool type="screen" />
+            </div>
+            <div className="huddle-buttons">
+                <div>Huddle:</div>
+                <VeltHuddleTool type="all" />
+                <VeltHuddleTool />
+                <VeltHuddleTool type="video" />
+                <VeltHuddleTool type="presentation" />
+            </div>
+            </div>
+            <VeltRecorderControlPanel />
+            <VeltRecorderNotes />
+            <VeltHuddle />
             <div className="box-container">
                 {
                     Array.from({ length: 25 }, (_, i) => i + 1).map((value) => {
